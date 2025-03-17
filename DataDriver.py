@@ -5,7 +5,7 @@ class DataDriver:
 
         def __init__(self , name):
                 self.name = name
- 
+
         def set_driver (self,driver):
                 self.Driver=driver
 
@@ -25,7 +25,10 @@ class DataDriver:
                 self.Trusted_Connection = trusted_connection
     
         def get_connection (self):
+            #self.Driver = pyodbc.drivers()[2]
+            #print("SELF NAME ==> {} DRIVER {}".format(self.name,self.Driver))
             if 'pymssql' not in self.name:
+                print (self.Driver,self.Server,self.Database,self.Uid,self.Pwd)
                 self.conn = pyodbc.connect("Driver="+self.Driver+";"
                       "Server="+self.Server+";"
                       "Database="+self.Database+";"
